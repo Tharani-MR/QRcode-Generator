@@ -1,0 +1,121 @@
+/* Reset default margin */
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:#f5f5f5;
+}
+
+/* Center the card */
+#root{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+}
+
+/* Main card */
+.outer-container{
+  width:100%;
+  max-width:420px;
+  padding:35px;
+  background:#ffffff;
+  border-radius:12px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+  text-align:center;
+}
+
+/* Title */
+.outer-container h2{
+  margin-bottom:20px;
+  color:#222;
+}
+
+/* Inner layout */
+.inner-container{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+}
+
+/* Input container */
+.input-container{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+/* Input field */
+input{
+  padding:12px;
+  border-radius:6px;
+  border:1px solid #ccc;
+  font-size:14px;
+  outline:none;
+  transition:0.2s;
+}
+
+/* Input focus */
+input:focus{
+  border-color:#2563eb;
+}
+
+/* Error text */
+.error{
+  color:red;
+  font-size:13px;
+  text-align:left;
+}
+
+/* Red border for error */
+.input-error{
+  border:1px solid red;
+}
+
+/* Buttons */
+button{
+  padding:12px;
+  border:none;
+  border-radius:8px;
+  background:#2563eb;
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+/* Button hover */
+button:hover{
+  background:#1d4ed8;
+}
+
+/* QR Image */
+.qr-image{
+  width:200px;
+  margin-top:10px;
+}
+
+/* Download button */
+.download-btn{
+  margin-top:10px;
+  background:#16a34a;
+}
+
+.download-btn:hover{
+  background:#15803d;
+}
+
+/* Responsive mobile */
+@media (max-width:480px){
+
+  .outer-container{
+    width:90%;
+    padding:25px;
+  }
+
+  .qr-image{
+    width:170px;
+  }
+
+}
