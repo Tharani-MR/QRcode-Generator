@@ -3,7 +3,6 @@ import QRcode from "qrcode";
 import "./App.css";
 
 function App() {
-
   const [url, setUrl] = useState("");
   const [qrCode, setQrCode] = useState("");
   const [loading, setLoading] = useState(false);
@@ -26,21 +25,18 @@ function App() {
     } finally {
       setLoading(false);
     }
+    setUrl("");
   }
 
   return (
     <>
       <div className="outer-container">
-
         <h2>QR Code Generator</h2>
 
         <div className="inner-container">
-
           {loading && <p>Please wait... generating QR code.</p>}
 
-          {qrCode && (
-            <img src={qrCode} alt="QR Code" className="qr-image"/>
-          )}
+          {qrCode && <img src={qrCode} alt="QR Code" className="qr-image" />}
 
           <form
             className="input-container"
@@ -49,7 +45,6 @@ function App() {
               generateQR();
             }}
           >
-
             {err && <p className="error">{err}</p>}
 
             <input
@@ -64,7 +59,6 @@ function App() {
             />
 
             <button type="submit">Generate QR Code</button>
-
           </form>
 
           {qrCode && (
@@ -72,14 +66,12 @@ function App() {
               <button className="download-btn">Download QR Code</button>
             </a>
           )}
-
         </div>
-
       </div>
 
       {/* Footer */}
       <footer className="footer">
-       <p>Designed by Tharani</p>
+        <p>Designed by Tharani</p>
       </footer>
     </>
   );
