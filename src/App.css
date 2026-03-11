@@ -1,19 +1,20 @@
-/* Reset default margin */
+/* Reset */
 body{
   margin:0;
   font-family: Arial, Helvetica, sans-serif;
   background:#f5f5f5;
 }
 
-/* Center the card */
+/* Page layout */
 #root{
   display:flex;
-  justify-content:center;
+  flex-direction:column;
   align-items:center;
+  justify-content:center;
   min-height:100vh;
 }
 
-/* Main card */
+/* Card container */
 .outer-container{
   width:100%;
   max-width:420px;
@@ -38,7 +39,7 @@ body{
   gap:18px;
 }
 
-/* Input container */
+/* Input section */
 .input-container{
   width:100%;
   display:flex;
@@ -68,7 +69,7 @@ input:focus{
   text-align:left;
 }
 
-/* Red border for error */
+/* Red border when error */
 .input-error{
   border:1px solid red;
 }
@@ -106,7 +107,15 @@ button:hover{
   background:#15803d;
 }
 
-/* Responsive mobile */
+/* Footer */
+.footer{
+  margin-top:25px;
+  font-size:14px;
+  color:#555;
+  text-align:center;
+}
+
+/* Mobile responsive */
 @media (max-width:480px){
 
   .outer-container{

@@ -10,7 +10,6 @@ function App() {
   const [err, setErr] = useState("");
 
   async function generateQR() {
-
     if (!url.trim()) {
       setErr("Please enter URL");
       return;
@@ -23,66 +22,66 @@ function App() {
       const qr = await QRcode.toDataURL(url);
       setQrCode(qr);
     } catch (error) {
-      console.error("Error generating QR:", error);
+      console.error(error);
     } finally {
       setLoading(false);
     }
-    setUrl("");
   }
 
   return (
-    <div className="outer-container">
+    <>
+      <div className="outer-container">
 
-      <h2>QR Code Generator</h2>
+        <h2>QR Code Generator</h2>
 
-      <div className="inner-container">
+        <div className="inner-container">
 
-        {loading && (
-          <p>Please wait... your QR code is being generated.</p>
-        )}
+          {loading && <p>Please wait... generating QR code.</p>}
 
-        {qrCode && (
-          <img src={qrCode} alt="QR Code" className="qr-image" />
-        )}
+          {qrCode && (
+            <img src={qrCode} alt="QR Code" className="qr-image"/>
+          )}
 
-        <form
-          className="input-container"
-          onSubmit={(e) => {
-            e.preventDefault();
-            generateQR();
-          }}
-        >
-
-          {err && <p className="error">{err}</p>}
-
-          <input
-            type="text"
-            placeholder="Enter URL here"
-            value={url}
-            className={err ? "error" : ""}
-            onChange={(e) => {
-              setUrl(e.target.value);
-              setErr("");
+          <form
+            className="input-container"
+            onSubmit={(e) => {
+              e.preventDefault();
+              generateQR();
             }}
-          />
+          >
 
-          <button type="submit">
-            Generate QR Code
-          </button>
+            {err && <p className="error">{err}</p>}
 
-        </form>
+            <input
+              type="text"
+              value={url}
+              placeholder="Enter URL here"
+              className={err ? "input-error" : ""}
+              onChange={(e) => {
+                setUrl(e.target.value);
+                setErr("");
+              }}
+            />
 
-        {qrCode && (
-          <a href={qrCode} download="qrcode.png">
-            <button className="download-btn">
-              Download QR Code
-            </button>
-          </a>
-        )}
+            <button type="submit">Generate QR Code</button>
+
+          </form>
+
+          {qrCode && (
+            <a href={qrCode} download="qrcode.png">
+              <button className="download-btn">Download QR Code</button>
+            </a>
+          )}
+
+        </div>
 
       </div>
 
-    </div>
+      {/* Footer */}
+      <footer className="footer">
+       <p>Designed by Tharani</p>
+      </footer>
+    </>
   );
 }
 
